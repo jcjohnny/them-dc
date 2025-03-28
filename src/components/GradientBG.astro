@@ -1,0 +1,29 @@
+---
+
+---
+
+<style>
+  #gradient-canvas {
+    width: 100%;
+    height: 100%;
+    --gradient-color-1: #97c3fe;
+    --gradient-color-2: #c898da;
+    --gradient-color-3: #acf7f9;
+    --gradient-color-4: #ffffff;
+  }
+</style>
+
+<canvas
+  id="gradient-canvas"
+  data-transition-in
+  class="fixed top-0 z-1 opacity-50"></canvas>
+
+<script>
+  import { Gradient } from "../scripts/Gradient.js";
+
+  // Create your instance
+  const gradient = new Gradient();
+
+  // Call `initGradient` with the selector to your canvas
+  gradient.initGradient("#gradient-canvas");
+</script>

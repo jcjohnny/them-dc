@@ -1,0 +1,260 @@
+<style>
+  .demo-8 {
+    --color-text: #000;
+    --color-bg: #e1e1e1;
+    --color-link: rgba(0, 0, 0, 0.6);
+    --color-link-hover: #000;
+    --color-bg-1: #9d9d9d;
+    --color-bg-2: #c7c7c7;
+    --color-bg-3: var(--color-bg-1);
+    --color-bg-4: var(--color-bg-2);
+    --color-bg-5: var(--color-bg-1);
+    --color-bg-6: var(--color-bg-2);
+  }
+
+  /* Page Loader */
+  .js .loading::before,
+  .js .loading::after {
+    content: "";
+    position: fixed;
+    z-index: 5000;
+  }
+
+  .js .loading::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg);
+  }
+
+  .js .loading::after {
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    border-radius: 50%;
+    opacity: 0.4;
+    background: var(--color-link);
+    animation: loaderAnim 0.7s linear infinite alternate forwards;
+  }
+
+  @keyframes loaderAnim {
+    to {
+      opacity: 1;
+      transform: scale3d(0.5, 0.5, 1);
+    }
+  }
+
+  .content {
+    padding: var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content--perspective {
+    perspective-origin: 50% 0%;
+    perspective: 1000px;
+  }
+
+  .content--sticky {
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    --offset: 0px;
+    top: var(--offset);
+    height: calc(100vh - var(--offset));
+  }
+
+  .content--grid,
+  .content--grid .content__inner {
+    display: grid;
+    overflow: hidden;
+    grid-column-gap: 5vw;
+    grid-row-gap: 2vh;
+    align-content: center;
+    grid-template-areas: "content-img" "content-title" "content-text";
+    justify-items: center;
+  }
+
+  .content--grid:has(.content__inner) {
+    display: block;
+    padding: 0;
+  }
+
+  .content__inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 2rem 2rem;
+  }
+
+  .content--card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 14px;
+    gap: 3vh;
+    text-align: center;
+    margin-bottom: 5vh;
+  }
+
+  .content--half {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    text-align: center;
+  }
+
+  .content--half:nth-child(odd) {
+    margin-left: auto;
+  }
+
+  .content__img {
+    width: 100%;
+    height: auto;
+  }
+
+  .spacer {
+    margin-top: 20vh;
+  }
+
+  @media screen and (min-width: 63em) {
+    .content--grid,
+    .content--grid .content__inner {
+      grid-template-areas: "content-img content-title" "content-img content-text";
+      grid-template-columns: 30% 1fr;
+      justify-items: start;
+    }
+
+    .content--card {
+      min-width: 400px;
+      max-width: 1200px;
+      width: 75%;
+    }
+  }
+</style>
+<div class="wrap z-50 relative ">
+  <div class="content content--sticky content--card bg-1">
+    <img
+      class="content__img content__img--small"
+      src="https://media.them.us/photos/67e45a5a36f353775bd20add/original/pass/Them_DC_011.jpg?format=original"
+    />
+  </div>
+  <div class="content content--sticky content--card bg-2">
+    <img
+      class="content__img content__img--small"
+      src="https://media.them.us/photos/67e45a5a7d223d8dfc29deeb/original/pass/Them_DC_008.jpg?format=original"
+    />
+  </div>
+  <div class="content content--sticky content--card bg-3">
+    <img
+      class="content__img content__img--small"
+      src="https://media.them.us/photos/67e45a5af59203eea67adefa/original/pass/Them_DC_067.jpg?format=original"
+    />
+  </div>
+  <div class="content content--sticky content--card bg-4">
+    <img
+      class="content__img content__img--small"
+      src="https://media.them.us/photos/67e45a5af59203eea67adefb/original/pass/TRV235749_TH_x_DC_Chosen_Family_Trip_30SEC_16x9_022624_VIDEO_STILL_04.jpg?format=original"
+    />
+  </div>
+  <div class="content content--sticky content--card bg-5">
+    <img
+      class="content__img content__img--small"
+      src="https://media.them.us/photos/67e45a5b5c07e44cb8400584/original/pass/Them_DC_014.jpg?format=original"
+    />
+  </div>
+  <div class="content content--sticky content--card bg-5"></div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { preloadImages } from "../scripts/utils.js";
+
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.normalizeScroll(true);
+
+  // Variable to store the Lenis smooth scrolling object
+  let lenis: any;
+
+  // Selecting DOM elements
+
+  const contentElements = [...document.querySelectorAll(".content--sticky")];
+
+  // Initializes Lenis for smooth scrolling with specific properties
+  const initSmoothScrolling = () => {
+    // Instantiate the Lenis object with specified properties
+    lenis = new Lenis({
+      lerp: 0.2, // Lower values create a smoother scroll effect
+      smoothWheel: true, // Enables smooth scrolling for mouse wheel events
+    });
+
+    // Update ScrollTrigger each time the user scrolls
+    lenis.on("scroll", () => ScrollTrigger.update());
+
+    // Define a function to run at each animation frame
+    const scrollFn = (time) => {
+      lenis.raf(time); // Run Lenis' requestAnimationFrame method
+      requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
+    };
+    // Start the animation frame loop
+    requestAnimationFrame(scrollFn);
+  };
+
+  // Function to handle scroll-triggered animations
+  const scroll = () => {
+    contentElements.forEach((el) => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "center center",
+            end: "max",
+            scrub: true,
+          },
+        })
+        .to(
+          el,
+          {
+            ease: "none",
+            startAt: { filter: "blur(0px)" },
+            filter: "blur(1px)",
+            scrollTrigger: {
+              trigger: el,
+              start: "center center",
+              end: "+=100%",
+              scrub: true,
+            },
+          },
+          0
+        )
+        .to(
+          el,
+          {
+            ease: "none",
+            scale: 0.7,
+            yPercent: -20,
+          },
+          0
+        );
+    });
+  };
+
+  // Initialization function
+  const init = () => {
+    initSmoothScrolling(); // Initialize Lenis for smooth scrolling
+    scroll(); // Apply scroll-triggered animations
+  };
+
+  preloadImages(".content__img").then(() => {
+    // Once images are preloaded, remove the 'loading' indicator/class from the body
+    document.body.classList.remove("loading");
+    init();
+  });
+</script>
+<script src="../scripts/lenis.min.js"></script>
+<script src="../scripts/imagesloaded.pkgd.min.js"></script>

@@ -1,0 +1,281 @@
+<style>
+  .connectedgrid {
+    --s: 2;
+    --color-text: #000000;
+    --color-bg: #85827a;
+    --color-link: #c7bea7;
+    --color-link-hover: #000;
+    --color-title: #000000;
+    --color-year: #b9b3af;
+    z-index: 10;
+  }
+
+  .grid {
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    display: grid;
+    /* grid-gap: 4rem; */
+    position: relative;
+  }
+
+  .grid__item {
+    position: relative;
+    margin: 0;
+  }
+
+  .grid__item-img {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--img-ratio);
+  }
+
+  .grid__item-img-inner {
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    position: relative;
+  }
+
+  .grid__item-caption {
+    position: absolute;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .grid__item-caption h3 {
+    font-weight: bold;
+    font-size: inherit;
+    margin: 0;
+    color: var(--color-title);
+  }
+
+  .grid__item-caption span {
+    font-weight: bold;
+    color: var(--color-year);
+  }
+
+  @media screen and (min-width: 53em) {
+    .grid {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    .grid__item {
+      grid-column: var(--c) / span var(--s);
+      grid-row: var(--r);
+    }
+  }
+</style>
+
+<section>
+  <div
+    class="absolute z-9 flex flex-wrap w-full h-full top-0 content-center justify-center"
+  >
+    <img
+      class="h-auto max-w-[700px] w-[45%] mt-[-10h]"
+      src="https://media.them.us/photos/67e584665120336f7dc2363b/original/pass/DC_TITLE_1-01%201.png?format=original"
+      alt=""
+    />
+  </div>
+  <div class="grid connectedgrid my-24">
+    <figure class="grid__item" style="--r: 1;--c: 1;--s:2; --img-ratio: 1;">
+      <div class="grid__item-img">
+        <div
+          class="grid__item-img-inner"
+          style="background-image:url(https://media.them.us/photos/67d44f353aa14b97f8f7e8d1/original/pass/TRV235749_TH_x_DC_Chosen_Family_Trip_Longform_16x9_022624_VIDEO_STILL_10.jpg?format=original);"
+        >
+        </div>
+      </div>
+      <figcaption class="grid__item-caption">
+      </figcaption>
+    </figure>
+    <figure class="grid__item" style="--r: 4;--c: 7; --img-ratio: 1">
+      <div class="grid__item-img">
+        <div
+          class="grid__item-img-inner"
+          style="background-image:url(https://media.them.us/photos/67d44e5e7d07fc0fcbf8b459/original/pass/Them_DC_069.jpg?format=original);"
+        >
+        </div>
+      </div>
+      <figcaption class="grid__item-caption">
+        <h3>Horus</h3>
+      </figcaption>
+    </figure>
+    <figure class="grid__item" style="--r: 5;--c: 5; --img-ratio: 1">
+      <div class="grid__item-img">
+        <div
+          class="grid__item-img-inner"
+          style="background-image:url(https://media.them.us/photos/67d44e467d07fc0fcbf8b457/original/pass/Them_DC_009.jpg?format=original);"
+        >
+        </div>
+      </div>
+      <figcaption class="grid__item-caption ApercuR">
+        <h3>Amun</h3>
+      </figcaption>
+    </figure>
+    <figure class="grid__item" style="--r: 6;--c: 3; --img-ratio: 1">
+      <div class="grid__item-img">
+        <div
+          class="grid__item-img-inner"
+          style="background-image:url(https://media.them.us/photos/67d44e464a4905202c462291/original/pass/TRV235749_TH_x_DC_Chosen_Family_Trip_Longform_1x1_022624_VIDEO_STILL_01.jpg?format=original);"
+        >
+        </div>
+      </div>
+      <figcaption class="grid__item-caption">
+        <h3>Ptah</h3>
+      </figcaption>
+    </figure>
+    <figure class="grid__item" style="--r: 7;--c: 1; --img-ratio: 1">
+      <div class="grid__item-img">
+        <div
+          class="grid__item-img-inner"
+          style="background-image:url(https://media.them.us/photos/67d44e467d07fc0fcbf8b456/original/pass/Them_DC_068.jpg?format=original);"
+        >
+        </div>
+      </div>
+      <figcaption class="grid__item-caption">
+        <h3>Anubis</h3> <br>
+      </figcaption>
+    </figure>
+    <figure class="grid__item items-center flex" style="--r: 7;--c: 5;--s: 4;">
+      <figcaption class="grid__item-caption">
+        <p>
+          For LGBTQ+ travelers, trusted recommendations don't come from
+          traditional advertising-they come from community-driven storytelling
+          and authentic representation. Research showed that LGBTQ+ visitors
+          often flocked to destinations with strong, visible queer culture (NYC,
+          SF, Fire Island), while Washington, D.C. was largely absent from their
+          consideration set.
+        </p>
+      </figcaption>
+    </figure>
+    <figure class="grid__item" style="--r: 8;--c: 3;--s: 4;">
+      <div class="grid__item-img">
+        <div
+          class="grid__item-img-inner"
+          style="background-image:url(https://media.them.us/photos/67d461a05cb669da439644ed/original/pass/Them_DC_081.jpg?format=original);"
+        >
+        </div>
+      </div>
+      <figcaption class="grid__item-caption">
+        <h3>Hathor</h3> <br>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { preloadImages } from "../scripts/utils.js";
+
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.normalizeScroll(true);
+
+  // Define a variable that will store the Lenis smooth scrolling object
+  let lenis: any;
+
+  // Get the grid element
+  const grid = document.querySelector(".grid");
+
+  // Get all grid items within the grid
+  const gridItems = document.querySelectorAll(".grid__item") as any;
+
+  // Function to initialize Lenis for smooth scrolling
+  const initSmoothScrolling = () => {
+    // Instantiate the Lenis object with specified properties
+    lenis = new Lenis({
+      lerp: 0.15, // Lower values create a smoother scroll effect
+      smoothWheel: true, // Enables smooth scrolling for mouse wheel events
+    });
+
+    // Update ScrollTrigger each time the user scrolls
+    lenis.on("scroll", () => ScrollTrigger.update());
+
+    // Define a function to run at each animation frame
+    const scrollFn = (time: any) => {
+      lenis.raf(time); // Run Lenis' requestAnimationFrame method
+      requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
+    };
+    // Start the animation frame loop
+    requestAnimationFrame(scrollFn);
+  };
+
+  const scroll = () => {
+    const viewportHeight = window.innerHeight;
+    const endValue = viewportHeight / 2;
+
+    // Loop through each grid item to add animations
+    gridItems.forEach((item: HTMLElement) => {
+      // Get the previous element sibling for the current item
+      const previousElementSibling = item.previousElementSibling as any;
+      // Determine if the current item is on the left side based on its position relative to the previous item
+      const isLeftSide =
+        previousElementSibling &&
+        item.offsetLeft + item.offsetWidth <=
+          previousElementSibling.offsetLeft + 1;
+      // Determine the origin for transformations (either 100 or 0 depending on position)
+      const originX = isLeftSide ? 100 : 0;
+
+      gsap
+        .timeline({
+          defaults: {
+            ease: "power2",
+          },
+          scrollTrigger: {
+            trigger: item,
+            start: "top bottom",
+            end: "+=75%",
+            scrub: true,
+          },
+        })
+        .fromTo(
+          item.querySelector(".grid__item-img"),
+          {
+            rotation: isLeftSide ? -45 : 45,
+            opacity: 0,
+            transformOrigin: `${originX}% 0%`,
+          },
+          {
+            rotation: 0,
+            opacity: 1,
+          },
+          0
+        )
+        .fromTo(
+          item.querySelector(".grid__item-caption"),
+          {
+            rotation: isLeftSide ? -45 : 45,
+            xPercent: isLeftSide ? -150 : 150,
+            yPercent: 500,
+            opacity: 0,
+            transformOrigin: `${originX}% 0%`,
+          },
+          {
+            ease: "sine",
+            rotation: 0,
+            xPercent: 0,
+            yPercent: 0,
+            opacity: 1,
+          },
+          0
+        );
+    });
+  };
+
+  // Preload images, initialize smooth scrolling, apply scroll-triggered animations, and remove loading class from body
+  preloadImages(".grid__item-img-inner").then(() => {
+    initSmoothScrolling();
+    scroll();
+    document.body.classList.remove("loading");
+  });
+</script>
+<script src="../scripts/lenis.min.js"></script>
+<script src="../scripts/imagesloaded.pkgd.min.js"></script>

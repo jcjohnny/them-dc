@@ -1,0 +1,102 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import IntroAnimation from "../components/IntroAnimation.astro";
+import BGGradient from "../components/GradientBG.astro";
+import LogoBar from "../components/LogoBar.astro";
+import Intro from "../components/Intro.astro";
+import VideoCopyOne from "../components/VideoCopyOne.astro";
+import FullGalleryScroll from "../components/FullGalleryScroll.astro";
+import VideoCopyTwo from "../components/VideoCopyTwo.astro";
+import StackingImages from "../components/StackingImages.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <!-- <IntroAnimation /> -->
+  <div>
+    <LogoBar />
+    <Intro />
+    <VideoCopyOne />
+    <FullGalleryScroll />
+    <VideoCopyTwo />
+    <StackingImages />
+    <BGGradient />
+  </div>
+</Layout>
+
+<style is:global>
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+  :root {
+    font-size: 16px;
+    --color-text: #000;
+    --color-bg: #fff;
+    --color-link: #000;
+    --color-link-hover: #000;
+    --img-ratio: 1.5;
+    --s: 1;
+  }
+
+  body {
+    margin: 0;
+    color: black;
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Apercu Regular";
+  }
+
+  h3 {
+    font-family: "Apercu Bold";
+  }
+
+
+  .apercu-r {
+    font-family: "Apercu Regular";
+  }
+  .apercu-b {
+    font-family: "Apercu RegulBoldar";
+  }
+
+  h4 {
+    font-family: "Playfair";
+  }
+
+  h4 span {
+    font-style: italic;
+  }
+
+  .playfair-<uniquifier > {
+    font-family: "Playfair", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+
+  @font-face {
+    font-family: "Apercu Bold";
+    src: url("../fonts/apercu-bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Apercu Regular";
+    src: url("../fonts/apercu-regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>

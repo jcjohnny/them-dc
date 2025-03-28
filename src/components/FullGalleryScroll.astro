@@ -1,0 +1,194 @@
+<style>
+  .connectedgrid_full {
+    --s: 1;
+    --color-text: #000000;
+    --color-bg: #85827a;
+    --color-link: #c7bea7;
+    --color-link-hover: #000;
+    --color-title: #000000;
+    --color-year: #b9b3af;
+    z-index: 10;
+  }
+
+  .grid_full {
+    width: 100%;
+    grid-template-columns: 100%;
+    /* grid-auto-rows: auto; */
+    display: grid;
+    position: relative;
+  }
+
+  .grid__item_full {
+    position: relative;
+    grid-row: 1 / span 5;
+  }
+
+  .grid__item-img_full {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.75;
+  }
+
+  .grid__item-img-inner_full {
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    position: relative;
+  }
+
+  @media screen and (min-width: 53em) {
+    .grid_full {
+      grid-template-columns: repeat(12, 2fr);
+      gap: 20px;
+    }
+
+    .grid__item_full {
+      grid-column: var(--c) / span var(--s);
+      grid-row: var(--r);
+    }
+  }
+
+  h3 {
+    position: sticky;
+  }
+</style>
+
+<section class="my-24 relative">
+  <h3 class="sticky top-[50%] left-[50%] text-center text-7xl">
+    Taking<br /><span>over</span> D.C.
+  </h3>
+  <div class="grid_full connectedgrid_full">
+    <figure class="grid__item_full" style="--r: 1;--c: 2; --s: 2">
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6daeb208d439d1c7ec92/original/pass/_0010_Them_DC_021.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure
+      class="grid__item_full mt-[-15vw] mr-[3vw]"
+      style="--r: 2;--c: 9; --s:4"
+    >
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6daf38e4f50cef237c74/original/pass/_0011_Them_DC_015.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure class="grid__item_full" style="--r: 3;--c: 3; --s:3">
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dae38e4f50cef237c72/original/pass/_0009_Them_DC_023.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure
+      class="grid__item_full mt-[-15vw] mr-[5vw]"
+      style="--r: 4;--c: 8; --s:3"
+    >
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6daec5100fd362868725/original/pass/_0008_Them_DC_025.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure class="grid__item_full" style="--r: 5;--c: 1; --s:3">
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6daeb208d439d1c7ec90/original/pass/_0007_Them_DC_026.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+
+    <figure
+      class="grid__item_full mt-[-15vw] mr-[3vw]"
+      style="--r: 6;--c: 10; --s:3"
+    >
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dacb208d439d1c7ec8e/original/pass/_0005_Them_DC_042.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure
+      class="grid__item_full mt-[-5vw] ml-[-3vw]"
+      style="--r: 7;--c: 3; --s: 2"
+    >
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6daedcf9e5593ddc778e/original/pass/_0006_Them_DC_041.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure class="grid__item_full mt-[-5vw]" style="--r: 8;--c: 9; --s: 2">
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dacc5100fd362868723/original/pass/_0004_Them_DC_047.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure class="grid__item_full" style="--r: 9;--c: 3; --s: 3">
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dacdcf9e5593ddc778b/original/pass/_0000_TRV235749_TH_x_DC_Chosen_Family_Trip_Longform_9x16_022624_VIDEO_STILL_05.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure class="grid__item_full" style="--r: 10;--c: 10; --s: 2">
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dacdcf9e5593ddc778c/original/pass/_0002_Them_DC_060.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure
+      class="grid__item_full mt-[-5vw] ml-[3vw]"
+      style="--r: 11;--c: 1; --s:3;"
+    >
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dacc5100fd362868722/original/pass/_0001_TRV235749_TH_x_DC_Chosen_Family_Trip_15SEC_1x1_022624_VIDEO_STILL_03.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+    <figure
+      class="grid__item_full mt-[-5vw] ml-[3vw]"
+      style="--r: 12;--c: 8; --s:3;"
+    >
+      <div class="grid__item-img_full">
+        <div
+          class="grid__item-img-inner_full"
+          style="background-image:url(https://media.them.us/photos/67dc6dacf02d89c1e6025abb/original/pass/_0003_Them_DC_057.png?format=original);"
+        >
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+interface Props {
+  url: string;
+  poster?: string;
+  width?: number | string;
+  height?: number | string;
+  className?: string;
+  controls?: boolean;
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  format?: "webm" | "mp4" | "both";
+}
+
+const {
+  url,
+  poster,
+  width = 1246,
+  height = 560,
+  className = "w-full max-w-[1246px] h-auto mx-auto",
+  controls = false,
+  autoplay = true,
+  loop = true,
+  muted = true,
+  format = "both",
+} = Astro.props;
+---
+
+<video
+  class={className}
+  width={width}
+  height={height}
+  autoplay={autoplay}
+  loop={loop}
+  muted={muted}
+  playsinline
+  controls={controls}
+  poster={poster}
+>
+  {
+    format === "webm" || format === "both" ? (
+      <source src={`${url}.webm`} type="video/webm" />
+    ) : null
+  }
+  {
+    format === "mp4" || format === "both" ? (
+      <source src={`${url}.mp4`} type="video/mp4" />
+    ) : null
+  }
+</video>
