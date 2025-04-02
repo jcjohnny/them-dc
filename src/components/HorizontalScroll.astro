@@ -1,0 +1,113 @@
+<style>
+  .sectionscroller {
+    height: 100vh;
+    font-size: 4em;
+    color: #fff;
+  }
+
+  #s_scroll {
+    height: 200vh;
+    contain: paint;
+    z-index: 99;
+    position: relative;
+  }
+
+  .wrap-scroll,
+  .d_scroll {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .wrap-scroll {
+    width: 200vw;
+    display: flex;
+    position: sticky;
+    top: 0;
+  }
+
+  .d_scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+
+  .d_scroll img {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 667px) {
+    #s_scroll {
+      height: 500vh;
+    }
+    .wrap-scroll {
+      width: 500vw;
+    }
+  }
+</style>
+
+<section id="s_scroll" class="sectionscroller themdc-container">
+  <div class="wrap-scroll">
+    <div class="d_scroll sc0">
+      <img
+        src="https://media.them.us/photos/67ec313fd055df67b2e9c705/original/pass/West%20Dakota.png?format=original"
+        alt=""
+      />
+    </div>
+    <div class="d_scroll sc1">
+      <img
+        src="https://media.them.us/photos/67ec313f42ebc13ddd5a2ba8/original/pass/Them%20Facebook%20Post%201.png?format=original"
+        alt=""
+      />
+    </div>
+    <div class="d_scroll sc2">
+      <img
+        src="https://media.them.us/photos/67ec313ffaee1df13ec0c98c/original/pass/Reign%20of%20Dynasty.png?format=original"
+        alt=""
+      />
+    </div>
+    <div class="d_scroll sc3">
+      <img
+        src="https://media.them.us/photos/67ec313fd055df67b2e9c704/original/pass/Them%20Facebook%20Post%201-1.png?format=original"
+        alt=""
+      />
+    </div>
+
+    <div class="d_scroll sc4">
+      <img
+        src="https://media.them.us/photos/67ec313f849a6fbdae3e6403/original/pass/Serena%20Tea.png?format=original"
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  let mm = gsap.matchMedia();
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#s_scroll",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 0,
+    },
+  });
+
+  mm.add("(max-width: 667px)", () => {
+    tl.to(".wrap-scroll", {
+      x: "-400vw",
+      ease: "none",
+    });
+  });
+  mm.add("(min-width: 668px)", () => {
+    tl.to(".wrap-scroll", {
+      x: "-100vw",
+      ease: "none",
+    });
+  });
+</script>

@@ -40,9 +40,13 @@
   .fade-out {
     opacity: 0;
   }
+
+  .noshowintro {
+    display: none;
+  }
 </style>
 
-<section>
+<section class="themdc-container">
   <div class="slides z-100 fixed top-0">
     <div class="slide">
       <div
@@ -52,19 +56,18 @@
         <div
           class="flex align-middle items-center justify-center w-full gap-15"
         >
-          <img src="" alt="" />
           <img
-            class="w-[15%]"
+            class="w-[100px] logoleft"
             src="https://media.them.us/photos/67e5937ec8879abc4c95cece/original/pass/DC-logo.png?format=original"
             alt=""
           />
           <img
-            class="w-[50%]"
+            class="w-[40%] mx-10 logocenter"
             src="https://media.them.us/photos/67e584665120336f7dc2363b/original/pass/DC_TITLE_1-01%201.png?format=original"
             alt=""
           />
           <img
-            class="w-[15%]"
+            class="w-[130px] logoright"
             src="https://media.them.us/photos/67e5937d8d127305d968081c/original/pass/themlogo.png?format=original"
             alt=""
           />
@@ -103,12 +106,15 @@
 </section>
 
 <script>
+  import { gsap } from "gsap";
   import { Slideshow } from "../scripts/slideshow.js";
   const slides = document.querySelector(".slides") as any;
+  const main = document.querySelector(".main-content") as any;
+  const body = document.querySelector("body") as any;
   const slideshow = new Slideshow(slides);
   const slideshowSlides = slideshow.DOM.slides;
   const firstSlide = slideshowSlides[0];
-  const lastSlide = slideshowSlides[slideshowSlides.length - 1];
+  const lastSlide = slideshowSlides[slideshowSlides.length - 2];
 
   var setSlidernAnimatedInterval = 0;
 
@@ -117,10 +123,17 @@
       setSlidernAnimatedInterval = setInterval(showNextSlide, 1200);
     } else if (lastSlide.classList.contains("slide--current")) {
       clearInterval(setSlidernAnimatedInterval);
-      slides.classList.add("fade-out");
-      slides.addEventListener("transitioned", () => {}, {
-        once: true,
-      });
+      setTimeout(() => {
+        slides.classList.add("fade-out");
+        slides.addEventListener("transitioned", () => {}, {
+          once: true,
+        });
+        main.classList.remove("noshowintro");
+        setTimeout(() => {
+          slides.classList.add("noshowintro");
+          body.classList.remove("noscrollintro");
+        }, 500);
+      }, 1200);
     }
     slideshow.next();
   }
@@ -128,4 +141,19 @@
   setTimeout(() => {
     showNextSlide();
   }, 3000);
+
+  const logoleft = document.querySelector(".logoleft") as any;
+  const logoright = document.querySelector(".logoright") as any;
+  const logocenter = document.querySelector(".logocenter") as any;
+
+  gsap.fromTo(
+    ".logoleft",
+    { autoAlpha: 0, x: 200 },
+    { autoAlpha: 1, x: 0, duration: 1 }
+  );
+  gsap.fromTo(
+    ".logoright",
+    { autoAlpha: 0, x: -200 },
+    { autoAlpha: 1, x: 0, duration: 1 }
+  );
 </script>

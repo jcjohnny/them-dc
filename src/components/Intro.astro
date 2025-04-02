@@ -26,7 +26,7 @@
 
   .grid__item-img {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: grid;
     place-items: center;
     width: 100%;
@@ -74,7 +74,7 @@
   }
 </style>
 
-<section>
+<section class="themdc-container">
   <div
     class="absolute z-9 flex flex-wrap w-full h-full top-0 content-center justify-center"
   >
@@ -84,7 +84,7 @@
       alt=""
     />
   </div>
-  <div class="grid connectedgrid my-24">
+  <div class="grid connectedgrid mt-24">
     <figure class="grid__item" style="--r: 1;--c: 1;--s:2; --img-ratio: 1;">
       <div class="grid__item-img">
         <div
@@ -93,8 +93,7 @@
         >
         </div>
       </div>
-      <figcaption class="grid__item-caption">
-      </figcaption>
+      <figcaption class="grid__item-caption"></figcaption>
     </figure>
     <figure class="grid__item" style="--r: 4;--c: 7; --img-ratio: 1">
       <div class="grid__item-img">
@@ -105,7 +104,7 @@
         </div>
       </div>
       <figcaption class="grid__item-caption">
-        <h3>Horus</h3>
+        <h3>Dynasty</h3>
       </figcaption>
     </figure>
     <figure class="grid__item" style="--r: 5;--c: 5; --img-ratio: 1">
@@ -117,7 +116,7 @@
         </div>
       </div>
       <figcaption class="grid__item-caption ApercuR">
-        <h3>Amun</h3>
+        <h3>Kiko Soirée</h3>
       </figcaption>
     </figure>
     <figure class="grid__item" style="--r: 6;--c: 3; --img-ratio: 1">
@@ -129,7 +128,7 @@
         </div>
       </div>
       <figcaption class="grid__item-caption">
-        <h3>Ptah</h3>
+        <h3>Serena Tea</h3>
       </figcaption>
     </figure>
     <figure class="grid__item" style="--r: 7;--c: 1; --img-ratio: 1">
@@ -141,12 +140,13 @@
         </div>
       </div>
       <figcaption class="grid__item-caption">
-        <h3>Anubis</h3> <br>
+        <h3>West Dakota</h3>
+        <br />
       </figcaption>
     </figure>
     <figure class="grid__item items-center flex" style="--r: 7;--c: 5;--s: 4;">
-      <figcaption class="grid__item-caption">
-        <p>
+      <figcaption class="">
+        <p class="pr-10">
           For LGBTQ+ travelers, trusted recommendations don't come from
           traditional advertising-they come from community-driven storytelling
           and authentic representation. Research showed that LGBTQ+ visitors
@@ -165,7 +165,7 @@
         </div>
       </div>
       <figcaption class="grid__item-caption">
-        <h3>Hathor</h3> <br>
+        <br />
       </figcaption>
     </figure>
   </div>

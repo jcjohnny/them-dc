@@ -25,7 +25,7 @@
 
   .grid__item-img_full {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: grid;
     place-items: center;
     width: 100%;
@@ -41,6 +41,12 @@
     position: relative;
   }
 
+  .playfairI {
+    font-family: "Playfair Light Italic";
+  }
+  .playfairR {
+    font-family: "Playfair Light";
+  }
   @media screen and (min-width: 53em) {
     .grid_full {
       grid-template-columns: repeat(12, 2fr);
@@ -58,11 +64,12 @@
   }
 </style>
 
-<section class="my-24 relative">
-  <h3 class="sticky top-[50%] left-[50%] text-center text-7xl">
-    Taking<br /><span>over</span> D.C.
+
+<section class="my-24 relative themdc-container">
+  <h3 class="sticky top-[50%] left-[50%] text-center text-7xl playfairI">
+    Taking<br />over <span class="playfairR">D.C.</span>
   </h3>
-  <div class="grid_full connectedgrid_full">
+  <div class="grid_full connectedgrid_full mt-[-133px]">
     <figure class="grid__item_full" style="--r: 1;--c: 2; --s: 2">
       <div class="grid__item-img_full">
         <div
