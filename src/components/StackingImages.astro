@@ -173,6 +173,7 @@
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import Lenis from "lenis";
   import { preloadImages } from "../scripts/utils.js";
 
   gsap.registerPlugin(ScrollTrigger);
@@ -197,7 +198,7 @@
     lenis.on("scroll", () => ScrollTrigger.update());
 
     // Define a function to run at each animation frame
-    const scrollFn = (time) => {
+    const scrollFn = (time: any) => {
       lenis.raf(time); // Run Lenis' requestAnimationFrame method
       requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
     };

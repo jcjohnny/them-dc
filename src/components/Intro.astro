@@ -175,7 +175,8 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   // import { preloadImages } from "../scripts/utils.js";
-
+  import Lenis from "lenis";
+  
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.normalizeScroll(true);
 
@@ -272,10 +273,10 @@
 
   // Preload images, initialize smooth scrolling, apply scroll-triggered animations, and remove loading class from body
   // preloadImages(".grid__item-img-inner").then(() => {
-    initSmoothScrolling();
-    scroll();
-    // document.body.classList.remove("loading");
+  initSmoothScrolling();
+  scroll();
+  // document.body.classList.remove("loading");
   // });
 </script>
-<script src="../scripts/lenis.min.js"></script>
+
 <!-- <script src="../scripts/imagesloaded.pkgd.min.js"></script> -->
