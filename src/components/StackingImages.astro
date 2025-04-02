@@ -174,7 +174,6 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import Lenis from "lenis";
-  import { preloadImages } from "../scripts/utils.js";
 
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.normalizeScroll(true);
@@ -245,17 +244,8 @@
     });
   };
 
-  // Initialization function
-  const init = () => {
-    initSmoothScrolling(); // Initialize Lenis for smooth scrolling
-    scroll(); // Apply scroll-triggered animations
-  };
 
-  preloadImages(".content__img").then(() => {
-    // Once images are preloaded, remove the 'loading' indicator/class from the body
-    document.body.classList.remove("loading");
-    init();
-  });
+  initSmoothScrolling(); // Initialize Lenis for smooth scrolling
+  scroll(); // Apply scroll-triggered animations
 </script>
-<script src="../scripts/lenis.min.js"></script>
-<script src="../scripts/imagesloaded.pkgd.min.js"></script>
+
