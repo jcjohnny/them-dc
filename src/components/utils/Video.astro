@@ -18,7 +18,7 @@ const {
   width = 1246,
   height = 560,
   className = "w-full max-w-[1246px] h-auto mx-auto",
-  controls = false,
+  controls = true,
   autoplay = true,
   loop = true,
   muted = true,
@@ -38,13 +38,8 @@ const {
   poster={poster}
 >
   {
-    format === "webm" || format === "both" ? (
-      <source src={`${url}.webm`} type="video/webm" />
-    ) : null
-  }
-  {
     format === "mp4" || format === "both" ? (
-      <source src={`${url}.mp4`} type="video/mp4" />
+      <source src={`${url}`} type="video/mp4" />
     ) : null
   }
 </video>

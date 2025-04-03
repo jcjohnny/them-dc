@@ -121,20 +121,26 @@
     margin-top: 20vh;
   }
 
-  @media screen and (min-width: 63em) {
-    .content--grid,
-    .content--grid .content__inner {
-      grid-template-areas: "content-img content-title" "content-img content-text";
-      grid-template-columns: 30% 1fr;
-      justify-items: start;
-    }
-
-    .content--card {
-      min-width: 400px;
-      max-width: 1200px;
-      width: 50%;
-    }
+  .content--grid,
+  .content--grid .content__inner {
+    grid-template-areas: "content-img content-title" "content-img content-text";
+    grid-template-columns: 30% 1fr;
+    justify-items: start;
   }
+
+  .content--card {
+    min-width: 370px;
+    max-width: 1200px;
+    width: 75%;
+  }
+
+  @media only screen and (max-width: 820px) {
+    
+
+
+  }
+
+
 </style>
 <section class="themdc-container wrap z-50 relative mt-[-25px]">
   <div class="content content--sticky content--card bg-1">
@@ -173,46 +179,21 @@
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import Lenis from "lenis";
+  // import Lenis from "lenis"
 
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.normalizeScroll(true);
 
-  // Variable to store the Lenis smooth scrolling object
-  let lenis: any;
-
-  // Selecting DOM elements
 
   const contentElements = [...document.querySelectorAll(".content--sticky")];
-
-  // Initializes Lenis for smooth scrolling with specific properties
-  const initSmoothScrolling = () => {
-    // Instantiate the Lenis object with specified properties
-    lenis = new Lenis({
-      lerp: 0.2, // Lower values create a smoother scroll effect
-      smoothWheel: true, // Enables smooth scrolling for mouse wheel events
-    });
-
-    // Update ScrollTrigger each time the user scrolls
-    lenis.on("scroll", () => ScrollTrigger.update());
-
-    // Define a function to run at each animation frame
-    const scrollFn = (time: any) => {
-      lenis.raf(time); // Run Lenis' requestAnimationFrame method
-      requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
-    };
-    // Start the animation frame loop
-    requestAnimationFrame(scrollFn);
-  };
-
-  // Function to handle scroll-triggered animations
+  
   const scroll = () => {
     contentElements.forEach((el) => {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: el,
-            start: "center center",
+            start: "top center",
             end: "max",
             scrub: true,
           },
@@ -225,7 +206,7 @@
             filter: "blur(1px)",
             scrollTrigger: {
               trigger: el,
-              start: "center center",
+              start: "top center",
               end: "+=100%",
               scrub: true,
             },
@@ -244,8 +225,6 @@
     });
   };
 
-
-  initSmoothScrolling(); // Initialize Lenis for smooth scrolling
+  // initSmoothScrolling(); // Initialize Lenis for smooth scrolling
   scroll(); // Apply scroll-triggered animations
 </script>
-

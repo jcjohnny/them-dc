@@ -36,12 +36,12 @@
     width: 100%;
   }
 
-  @media only screen and (max-width: 667px) {
+  @media only screen and (max-width: 820px) {
     #s_scroll {
-      height: 500vh;
+      height: 400vh;
     }
     .wrap-scroll {
-      width: 500vw;
+      width: 400vw;
     }
   }
 </style>
@@ -98,13 +98,13 @@
     },
   });
 
-  mm.add("(max-width: 667px)", () => {
+  mm.add("(max-width: 820px)", () => {
     tl.to(".wrap-scroll", {
-      x: "-400vw",
+      x: "-300vw",
       ease: "none",
     });
   });
-  mm.add("(min-width: 668px)", () => {
+  mm.add("(min-width: 821px)", () => {
     tl.to(".wrap-scroll", {
       x: "-100vw",
       ease: "none",

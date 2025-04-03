@@ -54,7 +54,7 @@
         style=""
       >
         <div
-          class="flex align-middle items-center justify-center w-full gap-15"
+          class="flex align-middle items-center justify-center w-full gap-15 md:flex-row flex-col"
         >
           <img
             class="w-[100px] logoleft"
@@ -62,7 +62,7 @@
             alt=""
           />
           <img
-            class="w-[40%] mx-10 logocenter"
+            class="w-[75%] md:w-[40%] mx-10 logocenter"
             src="https://media.them.us/photos/67e584665120336f7dc2363b/original/pass/DC_TITLE_1-01%201.png?format=original"
             alt=""
           />
@@ -120,7 +120,7 @@
 
   function showNextSlide() {
     if (firstSlide.classList.contains("slide--current")) {
-      setSlidernAnimatedInterval = setInterval(showNextSlide, 1200);
+      setSlidernAnimatedInterval = setInterval(showNextSlide, 1001);
     } else if (lastSlide.classList.contains("slide--current")) {
       clearInterval(setSlidernAnimatedInterval);
       setTimeout(() => {
@@ -133,27 +133,43 @@
           slides.classList.add("noshowintro");
           body.classList.remove("noscrollintro");
         }, 500);
-      }, 1200);
+      }, 1001);
     }
     slideshow.next();
   }
 
   setTimeout(() => {
     showNextSlide();
-  }, 3000);
+  }, 1500);
 
   const logoleft = document.querySelector(".logoleft") as any;
   const logoright = document.querySelector(".logoright") as any;
   const logocenter = document.querySelector(".logocenter") as any;
 
-  gsap.fromTo(
-    ".logoleft",
-    { autoAlpha: 0, x: 200 },
-    { autoAlpha: 1, x: 0, duration: 1 }
-  );
-  gsap.fromTo(
-    ".logoright",
-    { autoAlpha: 0, x: -200 },
-    { autoAlpha: 1, x: 0, duration: 1 }
-  );
+  let mm = gsap.matchMedia();
+
+  mm.add("(max-width: 667px)", () => {
+    gsap.fromTo(
+      ".logoleft",
+      { autoAlpha: 0, y: 200 },
+      { autoAlpha: 1, y: 0, duration: 1 }
+    );
+    gsap.fromTo(
+      ".logoright",
+      { autoAlpha: 0, y: -200 },
+      { autoAlpha: 1, y: 0, duration: 1 }
+    );
+  });
+  mm.add("(min-width: 668px)", () => {
+    gsap.fromTo(
+      ".logoleft",
+      { autoAlpha: 0, x: 200 },
+      { autoAlpha: 1, x: 0, duration: 1 }
+    );
+    gsap.fromTo(
+      ".logoright",
+      { autoAlpha: 0, x: -200 },
+      { autoAlpha: 1, x: 0, duration: 1 }
+    );
+  });
 </script>
