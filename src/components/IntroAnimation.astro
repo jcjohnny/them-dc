@@ -103,28 +103,16 @@
       </div>
     </div>
     <div class="slide">
-      <div
-        class="slide__img slide__img_1"
-      >
-      </div>
+      <div class="slide__img slide__img_1"></div>
     </div>
     <div class="slide">
-      <div
-        class="slide__img slide__img_2"
-      >
-      </div>
+      <div class="slide__img slide__img_2"></div>
     </div>
     <div class="slide">
-      <div
-        class="slide__img slide__img_3"
-      >
-      </div>
+      <div class="slide__img slide__img_3"></div>
     </div>
     <div class="slide">
-      <div
-        class="slide__img slide__img_4"
-      >
-      </div>
+      <div class="slide__img slide__img_4"></div>
     </div>
   </div>
 </section>
@@ -132,6 +120,8 @@
 <script>
   import { gsap } from "gsap";
   import { Slideshow } from "../scripts/slideshow.js";
+  import { preloadImages } from "../scripts/utils.js"; // Utility function to preload images
+
   const slides = document.querySelector(".slides") as any;
   const main = document.querySelector(".main-content") as any;
   const body = document.querySelector("body") as any;
@@ -144,7 +134,7 @@
 
   function showNextSlide() {
     if (firstSlide.classList.contains("slide--current")) {
-      setSlidernAnimatedInterval = setInterval(showNextSlide, 1001);
+      setSlidernAnimatedInterval = setInterval(showNextSlide, 1200);
     } else if (lastSlide.classList.contains("slide--current")) {
       clearInterval(setSlidernAnimatedInterval);
       setTimeout(() => {
@@ -156,15 +146,11 @@
         setTimeout(() => {
           slides.classList.add("noshowintro");
           body.classList.remove("noscrollintro");
-        }, 500);
-      }, 1001);
+        }, 200);
+      }, 1200);
     }
     slideshow.next();
   }
-
-  setTimeout(() => {
-    showNextSlide();
-  }, 2000);
 
   const logoleft = document.querySelector(".logoleft") as any;
   const logoright = document.querySelector(".logoright") as any;
@@ -196,4 +182,12 @@
       { autoAlpha: 1, x: 0, duration: 1 }
     );
   });
+
+  function startSlideshow() {
+    setTimeout(() => {
+      showNextSlide();
+    }, 3500);
+  }
+
+  preloadImages(".slide__img").then(() => startSlideshow());
 </script>
