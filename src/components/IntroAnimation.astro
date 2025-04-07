@@ -134,7 +134,7 @@
 
   function showNextSlide() {
     if (firstSlide.classList.contains("slide--current")) {
-      setSlidernAnimatedInterval = setInterval(showNextSlide, 1200);
+      setSlidernAnimatedInterval = setInterval(showNextSlide, 1100);
     } else if (lastSlide.classList.contains("slide--current")) {
       clearInterval(setSlidernAnimatedInterval);
       setTimeout(() => {
@@ -146,8 +146,8 @@
         setTimeout(() => {
           slides.classList.add("noshowintro");
           body.classList.remove("noscrollintro");
-        }, 200);
-      }, 1200);
+        }, 400);
+      }, 1100);
     }
     slideshow.next();
   }
